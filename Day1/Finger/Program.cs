@@ -5,7 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = "host=localhost;database=status_dev;password=TokyoJoe138!;username=postgres;port=5432";
 
-builder.Services.AddMarten(options => {
+builder.Services.AddMarten(options => 
+{
     options.Connection(connectionString);
     if (builder.Environment.IsDevelopment()) 
     {
@@ -19,7 +20,7 @@ app.MapGet("/status", async (IDocumentSession doc) =>
 {
     var results = await doc.Query<StatusMessage>()
     .OrderByDescending(m => m.When)
-    .FirstAsync();
+    .FirstOrDefaultAsync();
     
     if (results != null) {
         return Results.Ok(results);
