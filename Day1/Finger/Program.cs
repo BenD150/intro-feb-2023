@@ -2,6 +2,7 @@
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "host=localhost;database=status_dev;password=TokyoJoe138!;username=postgres;port=5432";
 
 var app = builder.Build();
 
