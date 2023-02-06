@@ -1,5 +1,5 @@
 <!-- Essentially a project file which handles all of the project info. On the mobile apps side, basically like Gradle or Maven. -->
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType> 
