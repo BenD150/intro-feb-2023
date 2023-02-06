@@ -15,13 +15,21 @@ builder.Services.AddMarten(options => {
 
 var app = builder.Build();
 
-app.MapGet("/status", () => {
-    var status = new StatusMessage(Guid.NewGuid(), "All is Good!", DateTimeOffset.Now);
-    return status;
+app.MapGet("/status", async (IDocumentSession doc) => 
+{
+    var results = await doc.Query<StatusMessage>()
+    .OrderByDescending(m => m.When)
+    .FirstAsync();
+    
+    if (results != null) {
+        return Results.Ok(results);
+    } else {
+        return Results.NotFound();
+    }
 });
 
-app.MapPost("/status", async (StatusRequest req, IDocumentSession doc) => {
-
+app.MapPost("/status", async (StatusRequest req, IDocumentSession doc) => 
+{
     var messageToSave = new StatusMessage(Guid.NewGuid(), req.Message, DateTimeOffset.Now);
     doc.Store<StatusMessage>(messageToSave);
     await doc.SaveChangesAsync();
