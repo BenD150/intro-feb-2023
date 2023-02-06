@@ -1,5 +1,5 @@
 namespace Finger
 {
 // Essentially just a class 
-public record StatusMessage(string Status, DateTimeOffset When);
+public record StatusMessage(Guid Id, string Status, DateTimeOffset When);
 }
