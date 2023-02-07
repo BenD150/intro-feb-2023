@@ -59,7 +59,7 @@ public class CreatingAndInitializingTypes
             message = "Old Enough";
         }
 
-        Assert.Equal(message, "Old Enough");
+        Assert.Equal("Old Enough", message);
     }
 
     [Fact]  
@@ -81,8 +81,19 @@ public class CreatingAndInitializingTypes
             message2.Append(num.ToString() + ", "); 
         }
 
-
+        Assert.StartsWith("1, 2, 3, 4", message.ToString());
     }
+
+    [Fact]
+    public void MoreAboutStrings()
+    {
+        var name = "Bob"; var age = 33; var message = "The name is " + name + " and the age is " + age + ".";
+        var message2 = string.Format("The name is {0} and the age is {1} (again, name: {0})", name, age);
+        var pay = 120_000.00M;
+        var m3 = $"{name} makes {pay:c} a year";
+    }
+
+
 
 
 }
