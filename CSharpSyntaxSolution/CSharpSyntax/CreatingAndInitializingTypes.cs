@@ -2,6 +2,8 @@
 
 public class CreatingAndInitializingTypes
 {
+    string thingy = "Bird";
+
     [Fact]
     public void UsingLiteralsToCreateInstancesOfTypes()
     {
@@ -31,14 +33,34 @@ public class CreatingAndInitializingTypes
         var myName = "Jeff";
 
         var favoriteFood = new Taco();
-        
+
         // M does NOT mean million, it means decimal
         var myPay = 25.23M;
 
         // Option in C# 6, we don't use this much except in special circumstances
         Taco lunch = new();
-
     }
+
+    [Fact]
+    public void CurlyBracesCreateScopes()
+    {
+        // lunch is local to ImplicitlyTyped method above
+        // Assert.IsType<Taco>(lunch);
+
+        // However, it can see class variables
+        Assert.IsType<String>(thingy);
+
+        var message = "";
+        var age = 22;
+        if (age >= 21)
+        {
+            message = "Old Enough";
+        }
+
+        Assert.Equal(message, "Old Enough");
+    }
+
+
 }
 
 public class Taco { }
