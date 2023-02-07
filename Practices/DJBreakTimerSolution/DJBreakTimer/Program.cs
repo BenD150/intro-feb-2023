@@ -24,7 +24,7 @@ var timeRemaining = breakAsDouble;
 while (timeRemaining > 0)
 {
     Console.Write($"There are {timeRemaining} minutes left in the break\n");
-    Thread.Sleep(1000);
+    Thread.Sleep(60000);
     timeRemaining -= 1;
 }
 
