@@ -20,6 +20,7 @@ namespace Demo1.UnitTests
             Assert.Equal(30, c);                                                                         
         }
 
+        // A theory should hold for multiple examples...
         [Theory]
         [InlineData(2, 2, 4)]
         [InlineData(8, 2, 10)]
