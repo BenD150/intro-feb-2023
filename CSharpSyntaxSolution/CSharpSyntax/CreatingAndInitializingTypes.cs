@@ -20,15 +20,23 @@ public class CreatingAndInitializingTypes
     }
 
     // C# is a statically typed language. VARIABLES CANNOT CHANGE THEIR TYPE, EVER! An integer will die as an integer
+    // literal = typed in value
     [Fact]
     public void ImplicitlyTypedLocalVariables()
     {
         // var can be used for local variables ONLY, and you MUST initialize the variable
+        // Using var: Can be a little less typing
         var myAge = 21;
 
         var myName = "Jeff";
 
         var favoriteFood = new Taco();
+        
+        // M does NOT mean million, it means decimal
+        var myPay = 25.23M;
+
+        // Option in C# 6, we don't use this much except in special circumstances
+        Taco lunch = new();
 
     }
 }
