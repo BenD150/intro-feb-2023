@@ -94,7 +94,28 @@ public class CreatingAndInitializingTypes
     }
 
 
+    [Fact]
+    public void DoingConversionsOnTypes()
+    {
 
+        string myPay = "1000.83";
+        
+
+        if (decimal.TryParse(myPay, out decimal payAsNumber))
+        {
+            // Assert.Equal(10_0000.83M, payAsNumber);
+        } else
+        {
+           // Assert.True(false); // will automatically cause an error
+        }
+
+        var birthdate = DateTime.Parse("04/20/1969");
+        Assert.Equal(4, birthdate.Month);
+        Assert.Equal(20, birthdate.Day);
+        Assert.Equal(1969, birthdate.Year);
+            
+
+    }
 
 }
 
