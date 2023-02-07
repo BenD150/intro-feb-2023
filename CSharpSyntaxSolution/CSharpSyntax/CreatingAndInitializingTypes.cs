@@ -1,4 +1,6 @@
-﻿namespace CSharpSyntax;
+﻿using System.Text;
+
+namespace CSharpSyntax;
 
 public class CreatingAndInitializingTypes
 {
@@ -58,6 +60,28 @@ public class CreatingAndInitializingTypes
         }
 
         Assert.Equal(message, "Old Enough");
+    }
+
+    [Fact]  
+    public void MutableStringsWithStringBuilders()
+    {
+        var message = "";
+
+        foreach(var num in Enumerable.Range(1, 10000))
+        {
+            // An explosion in the heap with the high number of allocations
+            message += num + ", ";
+        }
+
+        // Do this instead!
+        var message2 = new StringBuilder();
+
+        foreach (var num in Enumerable.Range(1, 10000))
+        {
+            message2.Append(num.ToString() + ", "); 
+        }
+
+
     }
 
 
