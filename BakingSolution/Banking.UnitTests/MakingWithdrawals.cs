@@ -2,40 +2,48 @@
 
 public class MakingWithdrawals
 {
+
+    private BankAccount _account;
+    private decimal _openingBalance;
+    
+
+    public MakingWithdrawals()
+    {
+        _account = new BankAccount();
+        _openingBalance = _account.GetBalance();
+    }
+
+
     [Theory]
     [InlineData(100)]
     [InlineData(183.23)]  
     public void MakingWithdrawalDecreasesBalance(decimal amountToWithdraw)
     {
-        var account = new BankAccount();
-        var openingBalance = account.GetBalance();
+        
 
-        account.Withdraw(amountToWithdraw);
+        _account.Withdraw(amountToWithdraw);
 
-        Assert.Equal(openingBalance - amountToWithdraw, account.GetBalance());  
+        Assert.Equal(_openingBalance - amountToWithdraw, _account.GetBalance());  
     }
 
 
     [Fact]
     public void OverdraftIsNotAllowedBalanceStaysTheSame()
     {
-        var account = new BankAccount();
-        var openingBalance = account.GetBalance();
-        var amountToWithdraw = openingBalance + .01M;
+        var amountToWithdraw = _openingBalance + .01M;
 
-        account.Withdraw(amountToWithdraw);
+        _account.Withdraw(amountToWithdraw);
 
-        Assert.Equal(openingBalance, account.GetBalance());
+        Assert.Equal(_openingBalance, _account.GetBalance());
     }
 
     [Fact]
     public void CanTakeEntireBalance()
     {
-        var account = new BankAccount();
 
-        account.Withdraw(account.GetBalance());
+        _account.Withdraw(_account.GetBalance());
 
-        Assert.Equal(0, account.GetBalance());
+        Assert.Equal(0, _account.GetBalance());
     }
 }
 
