@@ -21,10 +21,16 @@
 
         public void Withdraw(decimal amountToWithdraw)
         {
-            if (_balance >= amountToWithdraw)
+            if (NotOverdraft(amountToWithdraw))
             {
                 _balance -= amountToWithdraw;    
             }
+        }
+
+        // private helper method -- "never type private, always refactor to it"
+        private bool NotOverdraft(decimal amountToWithdraw)
+        {
+            return _balance >= amountToWithdraw;
         }
     }
 }
