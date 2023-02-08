@@ -27,5 +27,15 @@ public class MakingWithdrawals
 
         Assert.Equal(openingBalance, account.GetBalance());
     }
+
+    [Fact]
+    public void CanTakeEntireBalance()
+    {
+        var account = new BankAccount();
+
+        account.Withdraw(account.GetBalance());
+
+        Assert.Equal(0, account.GetBalance());
+    }
 }
 
