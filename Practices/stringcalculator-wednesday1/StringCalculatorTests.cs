@@ -12,4 +12,30 @@ public class StringCalculatorTests
 
         Assert.Equal(0, result);
     }
+
+    [Theory]
+    [InlineData("1", 1)]
+    [InlineData("10", 10)]    
+    public void SingleDigit(string numbers, int expected)
+    {
+        var calculator = new StringCalculator();    
+
+        var result = calculator.Add(numbers);
+
+        Assert.Equal(expected, result);
+
+    }
+
+    [Theory]
+    [InlineData("1, 2, 3", 6)]
+    [InlineData("6,60,100", 166)]
+    [InlineData("1\n2,3", 6)]
+    public void MultipleDigits(string numbers, int expected)
+    {
+        var calculator = new StringCalculator();   
+
+        var result = calculator.Add(numbers);
+
+        Assert.Equal(expected, result);
+    }
 }
