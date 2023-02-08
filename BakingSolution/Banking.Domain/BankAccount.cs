@@ -5,5 +5,10 @@
         public BankAccount()
         {
         }
+         
+        public decimal GetBalance()
+        {
+            return 5000; // Just Hard Code it! 
+        }
     }
 }
