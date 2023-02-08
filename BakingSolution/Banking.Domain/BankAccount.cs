@@ -18,5 +18,10 @@
         {
             return _balance; 
         }
+
+        public void Withdraw(decimal amountToWithdraw)
+        {
+            _balance -= amountToWithdraw;
+        }
     }
 }
