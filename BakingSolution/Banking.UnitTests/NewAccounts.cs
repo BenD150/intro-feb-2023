@@ -1,4 +1,6 @@
-﻿namespace Banking.UnitTests;
+﻿using Banking.Domain;
+
+namespace Banking.UnitTests;
 
 
 public class NewAccounts
