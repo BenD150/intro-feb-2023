@@ -2,7 +2,7 @@
 
 // Iteration 1 
 Console.Write("How long is the break?\n\n");
-var breakDouble = double.Parse(Console.ReadLine());
+var breakDouble = double.Parse(Console.ReadLine()); ;
 Console.Write("How long is the song?\n\n");
 var songLength = TimeSpan.Parse(Console.ReadLine());
 var totalMinutes = songLength.TotalMinutes;
