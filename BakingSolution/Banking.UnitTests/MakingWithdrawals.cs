@@ -17,7 +17,7 @@ public class MakingWithdrawals
 
 
     [Fact]
-    public void CanOverdraft()
+    public void OverdraftIsNotAllowedBalanceStaysTheSame()
     {
         var account = new BankAccount();
         var openingBalance = account.GetBalance();
@@ -25,7 +25,7 @@ public class MakingWithdrawals
 
         account.Withdraw(amountToWithdraw);
 
-        Assert.Equal(openingBalance - amountToWithdraw, account.GetBalance());
+        Assert.Equal(openingBalance, account.GetBalance());
     }
 }
 

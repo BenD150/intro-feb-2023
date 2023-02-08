@@ -21,7 +21,10 @@
 
         public void Withdraw(decimal amountToWithdraw)
         {
-            _balance -= amountToWithdraw;
+            if (_balance > amountToWithdraw)
+            {
+                _balance -= amountToWithdraw;    
+            }
         }
     }
 }
