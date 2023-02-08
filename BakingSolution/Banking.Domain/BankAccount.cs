@@ -24,6 +24,9 @@
             if (NotOverdraft(amountToWithdraw))
             {
                 _balance -= amountToWithdraw;    
+            } else
+            {
+                throw new AccountOverdraftException();
             }
         }
 
