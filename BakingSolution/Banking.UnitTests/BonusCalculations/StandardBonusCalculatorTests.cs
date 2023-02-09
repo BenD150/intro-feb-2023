@@ -30,3 +30,5 @@ public class StandardBonusCalculatorTestsDuringBusinessHours
 
     }
 }
+
+// Get during and outside tests
