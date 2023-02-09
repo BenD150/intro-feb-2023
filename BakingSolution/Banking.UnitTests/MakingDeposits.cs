@@ -7,7 +7,7 @@
     {
 
         // Given
-        var account = new BankAccount();
+        var account = new BankAccount(new DummyBonusCalculator());
         var openingBalance = account.GetBalance(); // I know the balance is 5000, but what if the business rule changes down the line? We are only testing one thing at a timw!!!
         var amountToDeposit = 100M;
 
