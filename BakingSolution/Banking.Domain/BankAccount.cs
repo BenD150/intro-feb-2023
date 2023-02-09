@@ -6,11 +6,6 @@
         private decimal _balance = 5000M; // State - "Fields" variable
         private ICanCalculateAccountBonuses _bonusCalculator;
 
-        public BankAccount(ICanCalculateAccountBonuses bonusCalculator)
-        {
-            _bonusCalculator = bonusCalculator;
-        }
-        
         // Constructors are for REQUIRED DEPENDENCIES when creating a class.
         public BankAccount(ICanCalculateAccountBonuses bonusCalculator)
         {
