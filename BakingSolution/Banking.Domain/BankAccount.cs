@@ -30,7 +30,10 @@
         {
             if (NotOverdraft(amountToWithdraw))
             {
-                _balance -= amountToWithdraw;    
+                _balance -= amountToWithdraw;
+                // Write the code you wish you had
+                // _notifier.CheckForRequiredNotification(this, amountToWithdraw);
+
             } else
             {
                 throw new AccountOverdraftException();
