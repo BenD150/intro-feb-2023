@@ -6,6 +6,8 @@ public class StandardBonusCalculatorTests
     [Fact]  
     public void UnderCutoffGetNoBonus()
     {
+        var stubbedClock = new Mock<IProvideTheBusinessClock>();
+        stubbedClock.Setup(c => c.IsDuringBusinessHours()).Returns(true);
         ICanCalculateAccountBonuses calculator = new StandardBonusCalculator();
 
         var bonus = calculator.GetDepositBonusFor(4999.99M, 100);
@@ -17,6 +19,8 @@ public class StandardBonusCalculatorTests
     [Fact]
     public void AtCutoffGetsBonus()
     {
+        var stubbedClock = new Mock<IProvideTheBusinessClock>();
+        stubbedClock.Setup(c => c.IsDuringBusinessHours()).Returns(true);
         ICanCalculateAccountBonuses calculator = new StandardBonusCalculator();
 
         var bonus = calculator.GetDepositBonusFor(5000M, 100);
