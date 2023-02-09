@@ -9,7 +9,7 @@ public class MakingWithdrawals
 
     public MakingWithdrawals()
     {
-        _account = new BankAccount(new DummyBonusCalculator());
+        _account = new BankAccount(new StubbedBonusCalculator());
         _openingBalance = _account.GetBalance();
     }
 
