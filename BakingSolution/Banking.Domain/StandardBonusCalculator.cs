@@ -2,7 +2,14 @@
 
 public class StandardBonusCalculator : ICanCalculateAccountBonuses
 {
+
     private IProvideTheBusinessClock _businessClock;
+
+    public StandardBonusCalculator(IProvideTheBusinessClock businessClock)
+    {
+        _businessClock = businessClock;
+    }
+
     public decimal GetDepositBonusFor(decimal balance, decimal amountToDeposit)
     {
         return EligibleForBonus(balance) ? amountToDeposit * 0.10M : 0;
