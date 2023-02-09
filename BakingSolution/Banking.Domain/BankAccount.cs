@@ -8,7 +8,8 @@
         {
         }
 
-        public void Deposit(decimal amountToDeposit)
+        // Adding the virtual keyword to say that this method can be overridden by any class that inherits this 
+        public virtual void Deposit(decimal amountToDeposit)
         {
             _balance += amountToDeposit;
             
