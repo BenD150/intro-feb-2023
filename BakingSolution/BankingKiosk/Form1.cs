@@ -41,11 +41,16 @@ public partial class Form1 : Form
         }
         catch (FormatException)
         {
-            MessageBox.Show("Enter a number", "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            DisplayTransactionError("Enter a number");
         }
         catch (AccountOverdraftException)
         {
-            MessageBox.Show("You don't have enough money to do that!", "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            DisplayTransactionError("You don't have enough money to do that!");
+        }
+        catch (NoNegativeNumbersException)
+        {
+            var message = "You Don't Have Enough Money, Get a Job Loser";
+            DisplayTransactionError(message);
         }
         finally
         {
@@ -55,6 +60,11 @@ public partial class Form1 : Form
         }
         
   
+    }
+
+    private static void DisplayTransactionError(string message)
+    {
+        MessageBox.Show(message, "Error in Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
 
     private void button1_Click(object sender, EventArgs e)
