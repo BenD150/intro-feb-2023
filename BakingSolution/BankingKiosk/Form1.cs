@@ -1,4 +1,5 @@
 using Banking.Domain;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace BankingKiosk;
 
@@ -32,9 +33,28 @@ public partial class Form1 : Form
     // Example of using a delegate
     private void DoTransaction(Action<decimal> op) // If you call me you have to give me a method that returns void and takes a decimal argument
     {
-        var amount = decimal.Parse(amountInput.Text);
-        op(amount);
-        UpdateBalanceDisplay();
+        try
+        {
+            var amount = decimal.Parse(amountInput.Text);
+            op(amount);
+            UpdateBalanceDisplay();
+        }
+        catch (FormatException)
+        {
+            MessageBox.Show("Enter a number", "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        catch (AccountOverdraftException)
+        {
+            MessageBox.Show("You don't have enough money to do that!", "Error on Transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            // Run this if there is an error, or if there isn't an error. ALWAYS
+            amountInput.SelectAll(); // Select all of the text in the input
+            amountInput.Focus(); // Focuses the cursor
+        }
+        
+  
     }
 
     private void button1_Click(object sender, EventArgs e)
