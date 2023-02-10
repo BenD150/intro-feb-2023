@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningResourcesApi", "LearningResourcesApi\LearningResourcesApi.csproj", "{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningResourcesApi", "LearningResourcesApi\LearningResourcesApi.csproj", "{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningResourcesApi.IntegrationTests", "LearningResourcesApi.IntegrationTests\LearningResourcesApi.IntegrationTests.csproj", "{D41BEDB5-2857-403A-9680-61B3C994CE76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
