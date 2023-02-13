@@ -8,15 +8,19 @@ import { Component } from '@angular/core';
 export class ShoppingListComponent {
 
   items: ShoppingItem[] = [
-    {description: 'Beer', purchased: false}, 
-    {description: 'Buns', purchased: false}, 
-    {description: 'Eggs', purchased: true}, 
+    { description: 'Beer', purchased: false },
+    { description: 'Buns', purchased: false },
+    { description: 'Eggs', purchased: true },
   ]
+
+  markPurchased(item: ShoppingItem) {
+    item.purchased = true;
+  }
 
 }
 
 
 type ShoppingItem = {
-  description:string,
-  purchased:boolean
+  description: string,
+  purchased: boolean
 }
