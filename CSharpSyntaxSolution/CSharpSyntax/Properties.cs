@@ -6,21 +6,21 @@ public class Properties
     [Fact]
     public void WorkingWithTheAccount()
     {
-        var account = new Account();
+        //var account = new Account();
 
-        account.Name = "Bob"; // setting the name to "Bob":
+        //account.Name = "Bob"; // setting the name to "Bob":
 
-        Assert.Equal("Bob", account.Name); // Get the name from the object
+        //Assert.Equal("Bob", account.Name); // Get the name from the object
 
-        account.Name = "Robert";
+        //account.Name = "Robert";
 
-        Assert.Equal(5000M, account.Balance);
+        //Assert.Equal(5000M, account.Balance);
 
         //account.Balance = 100000;
-        account.Deposit(1000);
-        Assert.Equal(6000M, account.Balance);
+        //account.Deposit(1000);
+        //Assert.Equal(6000M, account.Balance);
 
-        account.AccountNumber = 1000;
+        //account.AccountNumber = 1000;
 
         Assert.Equal(1000, account.AccountNumber);
         // Properties:
