@@ -1,7 +1,7 @@
 <section>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="addItem()">
         <label for="item">Item:</label>
-        <input class="form-control" id="item">
+        <input class="form-control" id="item" formControlName="item">
         <button type="submit" class="btn btn-primary">Add Item</button>
     </form>
 </section>
@@ -13,4 +13,5 @@
             <button (click)="markPurchased(item)" *ngIf="item.purchased === false" class="btn btn-danger">X</button>
         </li>
     </ul>
+    <button [disabled]="!hasPurchasedItems" (click) = "clearPurchased()" class = "btn btn-danger"> Clear Out Purchased Items</button>
 </section>
