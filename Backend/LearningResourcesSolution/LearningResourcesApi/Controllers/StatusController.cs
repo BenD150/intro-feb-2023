@@ -32,6 +32,6 @@ public class StatusController : ControllerBase
 
 public class GetStatusResponse
 {
-    public string Message { get; set; } = string.Empty;
-    public string Contact { get; set; } = string.Empty;
+    public string Message { get; init; } = string.Empty;
+    public string Contact { get; init; } = string.Empty;
 }
