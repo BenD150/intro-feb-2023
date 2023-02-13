@@ -15,14 +15,13 @@
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     "workbench.colorCustomizations": {
-      "editorIndentGuide.activeBackground": "#ff0000"
+        "editorIndentGuide.activeBackground": "#ff0000"
     },
     "editor.codeActionsOnSave": {
-      "source.organizeImports": false,
-      "source.fixAll": true
+        "source.organizeImports": false,
+        "source.fixAll": true
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
-  
     "explorer.confirmDelete": false,
     "eslint.quiet": false
-  }
+}
