@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class ShoppingListComponent {
 
+  items: ShoppingItem[] = [
+    {description: 'Beer', purchased: false}, 
+    {description: 'Buns', purchased: false}, 
+    {description: 'Eggs', purchased: true}, 
+  ]
+
+}
+
+
+type ShoppingItem = {
+  description:string,
+  purchased:boolean
 }
