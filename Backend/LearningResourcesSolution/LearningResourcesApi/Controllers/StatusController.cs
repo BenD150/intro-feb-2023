@@ -1,7 +1,5 @@
 ﻿using LearningResourcesApi.Services;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Models;
 
 namespace LearningResourcesApi.Controllers;
 
@@ -14,22 +12,23 @@ public class StatusController : ControllerBase
         _systemTime = systemTime;
     }
 
+
+    // GET /status
     [HttpGet("/status")]
     public ActionResult GetTheStatus()
     {
-        // Look this up from a database for example
-        // If it is between midnight and 4PM use a phone number
-        // outside of that, use an email address
-        var contact = _systemTime.GetCurrent().Hour < 4 ? "bob@aol.com" : "555 555-5555";
+        // look this up from a database or whatever
+        // If it is between midnight and 4 PM use a phone number,
+        // outside of that, use an email address.
+        var contact = _systemTime.GetCurrent().Hour < 16 ? "555 555-5555" : "bob@aol.com";
         var response = new GetStatusResponse
         {
             Message = "All Good!",
-            Contact = "555-555-5555"
+            Contact = contact
         };
         return Ok(response);
     }
 }
-
 
 public class GetStatusResponse
 {
