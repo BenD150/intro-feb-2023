@@ -6,6 +6,11 @@
         <p>This application was created for the Intro to Programming Class.</p>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary">See The API Status</button>
+        <button (click)="getStatus()"
+                class="btn btn-primary">See The API Status</button>
+        <pre>
+            <!-- When you have an observable, you HAVE to push it through the async pipe -->
+            {{ responseFromServer$ | async | json }}
+        </pre>
     </div>
 </div>

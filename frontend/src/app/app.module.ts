@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule // -> Has a service it provides called the HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent]
