@@ -1,4 +1,6 @@
+using LearningResourcesApi.Adapters;
 using LearningResourcesApi.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,13 @@ builder.Services.AddCors(pol =>
 });
 
 builder.Services.AddSingleton<ISystemTime, SystemTime>();
+
+builder.Services.AddDbContext<LearningResourcesDataContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("resources");
+    options.UseSqlServer(connectionString);
+});
+
 var app = builder.Build();
 
 app.UseCors();
