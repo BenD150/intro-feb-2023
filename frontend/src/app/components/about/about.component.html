@@ -8,9 +8,9 @@
     <div class="card-footer">
         <button (click)="getStatus()"
                 class="btn btn-primary">See The API Status</button>
-        <pre>
-            <!-- When you have an observable, you HAVE to push it through the async pipe -->
-            {{ responseFromServer$ | async | json }}
-        </pre>
+        <div *ngIf="(responseFromServer$ | async) as response">
+            <p>The status is {{ response?.message }} </p>
+            <p>Contact for Help: {{ response?.contact }}</p>
+        </div>
     </div>
 </div>
