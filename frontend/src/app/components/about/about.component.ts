@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { StatusResponseModel } from 'src/app/models/status.models';
+import { StatusDataService } from 'src/app/services/status-data.service';
 
 @Component({
   selector: 'app-about',
@@ -10,19 +11,14 @@ import { Observable } from 'rxjs';
 export class AboutComponent {
 
   responseFromServer$!: Observable<StatusResponseModel>;
-  constructor(private client: HttpClient) { }
+
+  constructor(private service: StatusDataService) { }
 
   getStatus() {
 
-    // $ means Observable
-    this.responseFromServer$ = this.client.get<StatusResponseModel>('http://localhost:1337/status');
-    // Subscribe to it in order to get something from the observable
+    this.responseFromServer$ = this.service.getStatus();
 
   }
 }
 
 
-type StatusResponseModel = {
-  message: string;
-  contact: string;
-}
