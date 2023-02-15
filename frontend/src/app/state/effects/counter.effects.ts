@@ -4,7 +4,7 @@ import { createEffect } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { filter, map, tap } from "rxjs";
 import { selectCounterFeature } from "..";
-import { counterEvents } from "../actions/counter.actions";
+import { counterDocuments, counterEvents } from "../actions/counter.actions";
 import { CounterState } from "../reducers/counter.reducer";
 
 @Injectable()
@@ -16,7 +16,8 @@ export class CounterEffects {
             ofType(counterEvents.counterEntered), // -> counterEntered Action
             map(() => localStorage.getItem('counter-data')), // string || null
             filter((storedStuff) => storedStuff != null),// stop here if there is nothing stored.
-            map((storedStuff) => JSON.parse(storedStuff!) as CounterState) // ! is "I know it's not null, I already tested it..."
+            map((storedStuff) => JSON.parse(storedStuff!) as CounterState), // ! is "I know it's not null, I already tested it..."
+            map(payload => counterDocuments.counter({ payload }))
         )
     }, { dispatch: false })
 
