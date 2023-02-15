@@ -8,7 +8,7 @@ export interface CounterState {
 
 // What should this have when the application starts up
 const initialState: CounterState = {
-    current: 42
+    current: 0
 }
 
 
