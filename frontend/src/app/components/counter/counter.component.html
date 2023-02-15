@@ -5,6 +5,7 @@
         <button (click)="increment()"
                 class="btn btn-success btn-sm">+</button>
         <button (click)="reset()"
+                [disabled]="(current$ | async) === 0"
                 class="btn btn-primary btn-sm"> Reset </button>
 </div>
 
