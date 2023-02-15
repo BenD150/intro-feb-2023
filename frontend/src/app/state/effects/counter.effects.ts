@@ -16,10 +16,10 @@ export class CounterEffects {
             ofType(counterEvents.counterEntered), // -> counterEntered Action
             map(() => localStorage.getItem('counter-data')), // string || null
             filter((storedStuff) => storedStuff != null),// stop here if there is nothing stored.
-            map((storedStuff) => JSON.parse(storedStuff!) as CounterState), // ! is "I know it's not null, I already tested it..."
+            map((storedStuff) => JSON.parse(storedStuff!) as CounterState),// { count: 1, by: 3} as CounterState
             map(payload => counterDocuments.counter({ payload }))
         )
-    }, { dispatch: false })
+    }, { dispatch: true })
 
     saveCounterPrefs$ = createEffect(() => {
         return this.actions$.pipe(
