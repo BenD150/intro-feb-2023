@@ -1,9 +1,9 @@
 <div>
-    <button (click)="decrement()"
-            class="btn btn-danger btn-sm">-</button>
-    <span>{{current}}</span>
-    <button (click)="increment()"
-            class="btn btn-success btn-sm">+</button>
+        <button (click)="decrement()"
+                class="btn btn-danger btn-sm">-</button>
+        <span>{{current$ | async}}</span>
+        <button (click)="increment()"
+                class="btn btn-success btn-sm">+</button>
 </div>
 
 <!-- Need to store this component's data in a global spacce and observe it. That's the next step! -->
