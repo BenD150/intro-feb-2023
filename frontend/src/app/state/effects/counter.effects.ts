@@ -2,12 +2,12 @@ import { Injectable } from "@angular/core";
 import { Actions, concatLatestFrom, ofType } from "@ngrx/effects";
 import { createEffect } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { filter, map, tap } from "rxjs";
-import { selectCounterFeature } from "..";
+import { catchError, filter, map, of, tap } from "rxjs";
+import { selectCounterFeature } from "../index";
 import { counterDocuments, counterEvents } from "../actions/counter.actions";
 import { CounterState } from "../reducers/counter.reducer";
-import { z } from 'zod'
-
+import { z } from 'zod';
+import { applicationEvents } from "../actions/app.actions";
 @Injectable()
 export class CounterEffects {
 
@@ -26,8 +26,12 @@ export class CounterEffects {
             ofType(counterEvents.counterEntered), // -> counterEntered Action
             map(() => localStorage.getItem('counter-data')), // string || null
             filter((storedStuff) => storedStuff != null),// stop here if there is nothing stored.
-            map((storedStuff) => JSON.parse(storedStuff!) as CounterState),// { count: 1, by: 3} as CounterState
-            map(payload => counterDocuments.counter({ payload }))
+            map((storedStuff) => JSON.parse(storedStuff!)),// { count: 1, by: 3} as CounterState
+            map((susObject) => this.CountDataSchema.parse(susObject) as CounterState),
+            map((payload: CounterState) => counterDocuments.counter({ payload })),
+            catchError((err) => {
+                return of(applicationEvents.error({ message: 'WE got ourselves a Mr. Robot wanna be haxx0ring the localstorage!' }))
+            })
         )
     }, { dispatch: true })
 
