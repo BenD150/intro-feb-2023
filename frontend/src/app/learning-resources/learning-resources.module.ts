@@ -10,7 +10,25 @@ import { NewComponent } from './components/new/new.component';
 const routes: Routes = [
   {
     path: '',
-    component: LearningResourcesComponent
+    component: LearningResourcesComponent,
+    children: [
+      {
+        path: 'overview',
+        component: DashboardComponent
+      },
+      {
+        path: 'list',
+        component: ListComponent
+      },
+      {
+        path: 'new',
+        component: NewComponent
+      },
+      {
+        path: '**',
+        redirectTo: 'overview'
+      }
+    ]
   }
 ]
 
