@@ -30,10 +30,21 @@ export class NewComponent {
 
   });
 
-  addItem() {
-    // this is where we will dispatch the action
-    console.log(this.form.valid);
-    console.log(this.form.value);
+  get description() { return this.form.controls.description; }
+  get type() { return this.form.controls.type; }
+  get link() { return this.form.controls.link; }
+
+  addItem(foci: HTMLInputElement) {
+    if (this.form.valid) {
+      // dispatch our action!
+
+      this.form.reset();
+      foci.focus();
+
+    } else {
+
+    }
+
   }
 }
 
