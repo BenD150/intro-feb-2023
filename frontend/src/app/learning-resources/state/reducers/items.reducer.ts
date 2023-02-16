@@ -20,6 +20,7 @@ const initialState = adapter.getInitialState();
 
 export const reducer = createReducer(
     initialState,
-    on(itemsDocuments.items, (s, a) => adapter.setAll(a.payload, s)) // adds the data to the state. It is in memory now!
+    on(itemsDocuments.items, (s, a) => adapter.setAll(a.payload, s)), // adds the data to the state. It is in memory now!
+    on(itemsDocuments.item, (s, a) => adapter.addOne(a.payload, s))
 );
 

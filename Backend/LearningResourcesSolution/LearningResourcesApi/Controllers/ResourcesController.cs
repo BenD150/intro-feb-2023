@@ -14,6 +14,25 @@ public class ResourcesController : ControllerBase
         _context = context;
     }
 
+    [HttpPost("/resources")]
+    public async Task<ActionResult> AddItem([FromBody] CreateResourceItem request)
+    {
+        if (ModelState.IsValid == false) 
+        {
+            return BadRequest(ModelState);
+        }
+        // tomorrow - ADD IT TO THE DATABASE
+        var response = new GetResourceItem
+        {
+            Id = Guid.NewGuid().ToString(),
+            Description = request.Description,
+            Link = request.Link,
+            Type = request.Type,
+        };
+        return Ok(response);
+    }
+
+
     [HttpGet("/resources")]
     public async Task<ActionResult> GetResources()
     {
