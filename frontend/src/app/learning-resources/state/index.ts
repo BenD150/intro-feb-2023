@@ -23,6 +23,7 @@ const selectItemsBranch = createSelector(selectFeature, f => f.items);
 
 // 3. Helpers
 
+// 4. What our component needs
 export const { selectAll: selectItemsArray } = fromItems.adapter.getSelectors(selectItemsBranch);
 
 
