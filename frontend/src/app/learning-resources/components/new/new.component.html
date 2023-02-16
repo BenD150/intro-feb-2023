@@ -1,1 +1,22 @@
-<p>new works!</p>
+<form [formGroup]="form"
+      (ngSubmit)="addItem()">
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input class="form-control"
+               formControlName="description">
+    </div>
+    <div class="form-group">
+        <label for="type">Type</label>
+        <select class="form-control"
+                formControlName="type">
+            <option *ngFor="let option of options">{{option}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="link">Link</label>
+        <input class="form-control"
+               formControlName="link">
+    </div>
+    <button type="submit"
+            class="btn btn-success">Add This Item</button>
+</form>
