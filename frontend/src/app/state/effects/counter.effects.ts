@@ -6,9 +6,19 @@ import { filter, map, tap } from "rxjs";
 import { selectCounterFeature } from "..";
 import { counterDocuments, counterEvents } from "../actions/counter.actions";
 import { CounterState } from "../reducers/counter.reducer";
+import { z } from 'zod'
 
 @Injectable()
 export class CounterEffects {
+
+    private readonly CountDataSchema = z.object({
+        current: z.number(),
+        by: z.union([
+            z.literal(1),
+            z.literal(3),
+            z.literal(5)
+        ])
+    })
 
     // this will turn counterEvents.counterEntered -> counterDocuments.counter || nothing
     loadCounterPrefs$ = createEffect(() => {
