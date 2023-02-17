@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningResourcesApi", "LearningResourcesApi\LearningResourcesApi.csproj", "{1450F9B8-F1B5-447D-8CE8-B23BC004EA5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningResourcesApi.IntegrationTests", "LearningResourcesApi.IntegrationTests\LearningResourcesApi.IntegrationTests.csproj", "{D41BEDB5-2857-403A-9680-61B3C994CE76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearningResourcesApi.IntegrationTests", "LearningResourcesApi.IntegrationTests\LearningResourcesApi.IntegrationTests.csproj", "{D41BEDB5-2857-403A-9680-61B3C994CE76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enumerables", "..\..\Enumerables\Enumerables\Enumerables.csproj", "{C38035F4-14DA-496F-A3DC-01A7C9408642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D41BEDB5-2857-403A-9680-61B3C994CE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38035F4-14DA-496F-A3DC-01A7C9408642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38035F4-14DA-496F-A3DC-01A7C9408642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38035F4-14DA-496F-A3DC-01A7C9408642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38035F4-14DA-496F-A3DC-01A7C9408642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

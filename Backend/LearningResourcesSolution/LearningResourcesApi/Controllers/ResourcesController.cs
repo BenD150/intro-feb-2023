@@ -1,4 +1,5 @@
 ﻿using LearningResourcesApi.Adapters;
+using LearningResourcesApi.Domain;
 using LearningResourcesApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,28 @@ public class ResourcesController : ControllerBase
         _context = context;
     }
 
+    [HttpGet("/resources/{id:int}")]
+    public async Task<ActionResult> GetById(int id)
+    {
+        var response = await _context.Items
+            .Where(item => item.Id == id)
+            .Select(item => new GetResourceItem
+            {
+                Id = item.Id.ToString(),
+                Description = item.Description,
+                Link = item.Link,
+                Type = item.Type
+            }).SingleOrDefaultAsync();
+        
+        if (response == null)
+        {
+            return NotFound();
+        } else
+        {
+            return Ok(response);
+        }
+    }
+
     [HttpPost("/resources")]
     public async Task<ActionResult> AddItem([FromBody] CreateResourceItem request)
     {
@@ -21,15 +44,23 @@ public class ResourcesController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        // tomorrow - ADD IT TO THE DATABASE
-        var response = new GetResourceItem
+        var itemToSave = new LearningItem
         {
-            Id = Guid.NewGuid().ToString(),
             Description = request.Description,
             Link = request.Link,
             Type = request.Type,
         };
-        return Ok(response);
+        _context.Items.Add(itemToSave);
+        await _context.SaveChangesAsync();
+
+        var response = new GetResourceItem
+        {
+            Id = itemToSave.Id.ToString(),
+            Description = itemToSave.Description,
+            Link = itemToSave.Link,
+            Type = itemToSave.Type,
+        };
+        return StatusCode(201, response);
     }
 
 
