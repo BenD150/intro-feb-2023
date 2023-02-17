@@ -16,12 +16,10 @@ foreach(var t in GetNumbers())
 sw.Stop();
 Console.WriteLine($"That took about {sw.ElapsedMilliseconds} milliseconds");
 
-static List<int> GetNumbers()
+static IEnumerable<int> GetNumbers()
 {
-    var result = new List<int>();   
     for (int t = 1; t < 101; t++)
     {
-        result.Add(t);
+        yield return t;
     }
-    return result;
 }
