@@ -1,13 +1,27 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Diagnostics;
+
 Console.WriteLine("Hello, World!");
 
-var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-
-var evens = numbers.Where(n => n % 2 == 0);
-
-numbers.Add(12);
-
-foreach(var even in evens)
+var sw = new Stopwatch(); 
+sw.Start();
+foreach(var t in GetNumbers())
 {
-    Console.WriteLine(even);
+    Console.WriteLine(t);
+    if (t==10)
+    {
+        break;
+    }
+}
+sw.Stop();
+Console.WriteLine($"That took about {sw.ElapsedMilliseconds} milliseconds");
+
+static List<int> GetNumbers()
+{
+    var result = new List<int>();   
+    for (int t = 1; t < 101; t++)
+    {
+        result.Add(t);
+    }
+    return result;
 }
